@@ -1,0 +1,38 @@
+site_name: EV
+
+nav:
+  - Home: index.md
+  - Code Reference: 
+    - Data Processing:
+      - reference/data/data_processing.md
+      - reference/data/example_data_import.md
+    - Models:
+      - reference/models/bricks.md
+      - reference/models/charger.md
+      - reference/models/controller.md
+      - reference/models/ev_system.md
+      - reference/models/sim_functions.md
+      - reference/models/vehicles.md
+
+theme:  
+  name: material
+  palette:
+    primary: cy
+    accent: purple
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+
+plugins:
+  - search
+  - mkdocstrings:
+      enabled: !ENV [ENABLE_MKDOCSTRINGS, true]
+      default_handler: python
+      handlers:
+        python: 
+          paths: [ev_model]
+          options:
+            show_source: false
+
+extra_css:
+    - styles.css

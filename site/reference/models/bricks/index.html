@@ -1,0 +1,2398 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../data/example_data_import/">
+      
+      
+        <link rel="next" href="../charger/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.14">
+    
+    
+      
+        <title>Bricks - EV</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.10ba22f1.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../../styles.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cy" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ev_model.models.bricks" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="EV" class="md-header__button md-logo" aria-label="EV" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            EV
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Bricks
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="EV" class="md-nav__button md-logo" aria-label="EV" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    EV
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Code Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Code Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Processing
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Data Processing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/data_processing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data processing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/example_data_import/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Example data import
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Models
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Models
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Bricks
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Bricks
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.bricks" class="md-nav__link">
+    <span class="md-ellipsis">
+      bricks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.Battery" class="md-nav__link">
+    <span class="md-ellipsis">
+      Battery
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Battery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.Battery.current_energy_stored" class="md-nav__link">
+    <span class="md-ellipsis">
+      current_energy_stored
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.Battery.requested_energy" class="md-nav__link">
+    <span class="md-ellipsis">
+      requested_energy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.Battery.target_energy_stored" class="md-nav__link">
+    <span class="md-ellipsis">
+      target_energy_stored
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.Battery.battery_is_charging" class="md-nav__link">
+    <span class="md-ellipsis">
+      battery_is_charging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.Battery.battery_is_plugged" class="md-nav__link">
+    <span class="md-ellipsis">
+      battery_is_plugged
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.Battery.calculate_charging_time" class="md-nav__link">
+    <span class="md-ellipsis">
+      calculate_charging_time
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.Battery.calculate_losses" class="md-nav__link">
+    <span class="md-ellipsis">
+      calculate_losses
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.Battery.reset_current_soc" class="md-nav__link">
+    <span class="md-ellipsis">
+      reset_current_soc
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.Battery.run_model" class="md-nav__link">
+    <span class="md-ellipsis">
+      run_model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.Battery.target_charge_achieved" class="md-nav__link">
+    <span class="md-ellipsis">
+      target_charge_achieved
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.Schedule" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schedule
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Schedule">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.Schedule.get_plugged_profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_plugged_profile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.Schedule.is_plugged" class="md-nav__link">
+    <span class="md-ellipsis">
+      is_plugged
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.TimeserieRecorder" class="md-nav__link">
+    <span class="md-ellipsis">
+      TimeserieRecorder
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="TimeserieRecorder">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.TimeserieRecorder.get_column_names" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_column_names
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.TimeserieRecorder.get_index_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_index_name
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.TimeserieRecorder.record_batch_data" class="md-nav__link">
+    <span class="md-ellipsis">
+      record_batch_data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.TimeserieRecorder.record_single_data" class="md-nav__link">
+    <span class="md-ellipsis">
+      record_single_data
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../charger/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Charger
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../controller/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Controller
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ev_system/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ev system
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sim_functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sim functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vehicles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vehicles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.bricks" class="md-nav__link">
+    <span class="md-ellipsis">
+      bricks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.Battery" class="md-nav__link">
+    <span class="md-ellipsis">
+      Battery
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Battery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.Battery.current_energy_stored" class="md-nav__link">
+    <span class="md-ellipsis">
+      current_energy_stored
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.Battery.requested_energy" class="md-nav__link">
+    <span class="md-ellipsis">
+      requested_energy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.Battery.target_energy_stored" class="md-nav__link">
+    <span class="md-ellipsis">
+      target_energy_stored
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.Battery.battery_is_charging" class="md-nav__link">
+    <span class="md-ellipsis">
+      battery_is_charging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.Battery.battery_is_plugged" class="md-nav__link">
+    <span class="md-ellipsis">
+      battery_is_plugged
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.Battery.calculate_charging_time" class="md-nav__link">
+    <span class="md-ellipsis">
+      calculate_charging_time
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.Battery.calculate_losses" class="md-nav__link">
+    <span class="md-ellipsis">
+      calculate_losses
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.Battery.reset_current_soc" class="md-nav__link">
+    <span class="md-ellipsis">
+      reset_current_soc
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.Battery.run_model" class="md-nav__link">
+    <span class="md-ellipsis">
+      run_model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.Battery.target_charge_achieved" class="md-nav__link">
+    <span class="md-ellipsis">
+      target_charge_achieved
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.Schedule" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schedule
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Schedule">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.Schedule.get_plugged_profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_plugged_profile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.Schedule.is_plugged" class="md-nav__link">
+    <span class="md-ellipsis">
+      is_plugged
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.TimeserieRecorder" class="md-nav__link">
+    <span class="md-ellipsis">
+      TimeserieRecorder
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="TimeserieRecorder">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.TimeserieRecorder.get_column_names" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_column_names
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.TimeserieRecorder.get_index_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_index_name
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.TimeserieRecorder.record_batch_data" class="md-nav__link">
+    <span class="md-ellipsis">
+      record_batch_data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.bricks.TimeserieRecorder.record_single_data" class="md-nav__link">
+    <span class="md-ellipsis">
+      record_single_data
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Bricks</h1>
+
+<div class="doc doc-object doc-module">
+
+
+
+<a id="ev_model.models.bricks"></a>
+  <div class="doc doc-contents first">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="ev_model.models.bricks.Battery" class="doc doc-heading">
+          <code>Battery</code>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+  </span>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>Class used to model the battery of an EV and its charging process.</p>
+
+
+
+  <p><strong>Attributes:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code><span title="ev_model.models.bricks.Battery.current_soc">current_soc</span></code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The current state of charge of the battery.</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><code><span title="ev_model.models.bricks.Battery.target_soc">target_soc</span></code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The target state of charge of the battery.</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><code><span title="ev_model.models.bricks.Battery.battery_size">battery_size</span></code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The size of the battery in kWh.</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><code><span title="ev_model.models.bricks.Battery.schedule">schedule</span></code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="ev_model.models.bricks.Schedule" href="#ev_model.models.bricks.Schedule">Schedule</a></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The schedule of the EV.</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><code><span title="ev_model.models.bricks.Battery.battery_losses">battery_losses</span></code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The losses of the battery in %/timestep.</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><code><span title="ev_model.models.bricks.Battery.initial_soc">initial_soc</span></code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The initial state of charge of the battery.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Methods:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+          <tr>
+            <td><code><a class="autorefs autorefs-internal" title="ev_model.models.bricks.Battery.current_energy_stored" href="#ev_model.models.bricks.Battery.current_energy_stored">current_energy_stored</a></code></td>
+            <td>
+              <div class="doc-md-description">
+                <p>Returns the current energy stored in the battery.</p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><code><a class="autorefs autorefs-internal" title="ev_model.models.bricks.Battery.target_energy_stored" href="#ev_model.models.bricks.Battery.target_energy_stored">target_energy_stored</a></code></td>
+            <td>
+              <div class="doc-md-description">
+                <p>Returns the target energy stored in the battery.</p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><code><a class="autorefs autorefs-internal" title="ev_model.models.bricks.Battery.requested_energy" href="#ev_model.models.bricks.Battery.requested_energy">requested_energy</a></code></td>
+            <td>
+              <div class="doc-md-description">
+                <p>Returns the requested energy to be stored in the battery.</p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><code><a class="autorefs autorefs-internal" title="ev_model.models.bricks.Battery.target_charge_achieved" href="#ev_model.models.bricks.Battery.target_charge_achieved">target_charge_achieved</a></code></td>
+            <td>
+              <div class="doc-md-description">
+                <p>Returns if the target charge is achieved.</p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><code><a class="autorefs autorefs-internal" title="ev_model.models.bricks.Battery.calculate_charging_time" href="#ev_model.models.bricks.Battery.calculate_charging_time">calculate_charging_time</a></code></td>
+            <td>
+              <div class="doc-md-description">
+                <p>Calculates the charging time for different chargers.</p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><code><a class="autorefs autorefs-internal" title="ev_model.models.bricks.Battery.calculate_losses" href="#ev_model.models.bricks.Battery.calculate_losses">calculate_losses</a></code></td>
+            <td>
+              <div class="doc-md-description">
+                <p>Calculates the losses of the battery.</p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><code><a class="autorefs autorefs-internal" title="ev_model.models.bricks.Battery.battery_is_charging" href="#ev_model.models.bricks.Battery.battery_is_charging">battery_is_charging</a></code></td>
+            <td>
+              <div class="doc-md-description">
+                <p>Charges the battery if it is not fully charged.</p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><code><a class="autorefs autorefs-internal" title="ev_model.models.bricks.Battery.reset_current_soc" href="#ev_model.models.bricks.Battery.reset_current_soc">reset_current_soc</a></code></td>
+            <td>
+              <div class="doc-md-description">
+                <p>Resets the current state of charge of the battery.</p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><code><a class="autorefs autorefs-internal" title="ev_model.models.bricks.Battery.battery_is_plugged" href="#ev_model.models.bricks.Battery.battery_is_plugged">battery_is_plugged</a></code></td>
+            <td>
+              <div class="doc-md-description">
+                <p>Charges the battery if it is plugged.</p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><code><a class="autorefs autorefs-internal" title="ev_model.models.bricks.Battery.run_model" href="#ev_model.models.bricks.Battery.run_model">run_model</a></code></td>
+            <td>
+              <div class="doc-md-description">
+                <p>Runs the model of the battery.</p>
+              </div>
+            </td>
+          </tr>
+    </tbody>
+  </table>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="ev_model.models.bricks.Battery.current_energy_stored" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">current_energy_stored</span><span class="p">:</span> <span class="nb">float</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Returns the current energy stored in the battery.</p>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The current energy stored in the battery.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="ev_model.models.bricks.Battery.requested_energy" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">requested_energy</span><span class="p">:</span> <span class="nb">float</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Returns the requested energy to be stored in the battery.</p>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The requested energy to be stored in the battery.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="ev_model.models.bricks.Battery.target_energy_stored" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">target_energy_stored</span><span class="p">:</span> <span class="nb">float</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Returns the target energy stored in the battery.</p>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The target energy stored in the battery.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+  </div>
+
+</div>
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="ev_model.models.bricks.Battery.battery_is_charging" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">battery_is_charging</span><span class="p">(</span><span class="n">energy_input</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Charges the battery if it is not fully charged.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>energy_input</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The energy input to the battery.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The energy input to the battery.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="ev_model.models.bricks.Battery.battery_is_plugged" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">battery_is_plugged</span><span class="p">(</span><span class="n">current_dt</span><span class="p">,</span> <span class="n">energy_input</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Charges the battery if it is plugged and if it is not fully charged yet.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>current_dt</code></td>
+          <td>
+                <code><span title="datetime.datetime">datetime</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The current datetime.  </p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+      <p>energy_input float:
+    The energy input to the battery.  </p>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The energy input to the battery.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="ev_model.models.bricks.Battery.calculate_charging_time" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">calculate_charging_time</span><span class="p">(</span><span class="n">chargers_max_output</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Calculates the charging time based on different chargers.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>chargers_max_output</code></td>
+          <td>
+                <code>list[float]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The list of maximum outputs of the chargers.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>dict[int, float]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>A dictionary with the charging time for different chargers.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="ev_model.models.bricks.Battery.calculate_losses" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">calculate_losses</span><span class="p">()</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Calculates the losses of the battery from the current State Of Charge.</p>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="ev_model.models.bricks.Battery.reset_current_soc" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">reset_current_soc</span><span class="p">()</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>The current soc is resetted to its initial value.</p>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="ev_model.models.bricks.Battery.run_model" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">run_model</span><span class="p">(</span><span class="n">current_dt</span><span class="p">,</span> <span class="n">energy_input</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Calculate losses and charge the EV if it is connected and if it is not fully charged yet.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>current_dt</code></td>
+          <td>
+                <code><span title="datetime.datetime">datetime</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The current datetime.  </p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>energy_input</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The energy input to the battery.  </p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The energy input to the battery.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="ev_model.models.bricks.Battery.target_charge_achieved" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">target_charge_achieved</span><span class="p">()</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Returns if the target charge is achieved.</p>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If the target charge is achieved.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="ev_model.models.bricks.Schedule" class="doc doc-heading">
+          <code>Schedule</code>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+  </span>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>Class used to define the schedule of people with EVs, when are they working, 
+connecting their EVs, etc.
+WIP: to be developed</p>
+
+
+
+  <p><strong>Attributes:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code><span title="ev_model.models.bricks.Schedule.arrival_time">arrival_time</span></code></td>
+          <td>
+                <code><span title="datetime.datetime.time">time</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The time when the person arrives at work.</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><code><span title="ev_model.models.bricks.Schedule.departure_time">departure_time</span></code></td>
+          <td>
+                <code><span title="datetime.datetime.time">time</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The time when the person leaves work.</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><code><span title="ev_model.models.bricks.Schedule.list_days">list_days</span></code></td>
+          <td>
+                <code>list[int] | None</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The list of days when the EV is connected.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Methods:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+          <tr>
+            <td><code><a class="autorefs autorefs-internal" title="ev_model.models.bricks.Schedule.is_plugged" href="#ev_model.models.bricks.Schedule.is_plugged">is_plugged</a></code></td>
+            <td>
+              <div class="doc-md-description">
+                <p>Returns if the EV is connected.</p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><code><a class="autorefs autorefs-internal" title="ev_model.models.bricks.Schedule.get_plugged_profile" href="#ev_model.models.bricks.Schedule.get_plugged_profile">get_plugged_profile</a></code></td>
+            <td>
+              <div class="doc-md-description">
+                <p>Returns the profile of the EV being connected.</p>
+              </div>
+            </td>
+          </tr>
+    </tbody>
+  </table>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="ev_model.models.bricks.Schedule.get_plugged_profile" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">get_plugged_profile</span><span class="p">(</span><span class="n">timesteps</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Returns the profile of the EV being connected.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>timesteps</code></td>
+          <td>
+                <code><span title="numpy.NDArray">NDArray</span>[<span title="numpy.datetime64">datetime64</span>]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>A numpy array with the timesteps.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="numpy.NDArray">NDArray</span>[<span title="typing.Any">Any</span>]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>A numpy array with the profile of the EV being connected.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="ev_model.models.bricks.Schedule.is_plugged" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">is_plugged</span><span class="p">(</span><span class="n">current_dt</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Returns if the EV is connected.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>current_dt</code></td>
+          <td>
+                <code><span title="datetime.datetime">datetime</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The current datetime.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If the EV is connected.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="ev_model.models.bricks.TimeserieRecorder" class="doc doc-heading">
+          <code>TimeserieRecorder</code>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+  </span>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>Class used to record timeseries data.</p>
+
+
+
+  <p><strong>Attributes:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code><span title="ev_model.models.bricks.TimeserieRecorder.index">index</span></code></td>
+          <td>
+                <code><span title="numpy.NDArray">NDArray</span>[<span title="numpy.datetime64">datetime64</span>]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>A numpy array with the datetime index.</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><code><span title="ev_model.models.bricks.TimeserieRecorder.header">header</span></code></td>
+          <td>
+                <code>list[<span title="enum.Enum">Enum</span>]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>A list with the column names.</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><code><span title="ev_model.models.bricks.TimeserieRecorder.recorded_data">recorded_data</span></code></td>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>A dataframe with the recorded data.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Methods:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+          <tr>
+            <td><code><a class="autorefs autorefs-internal" title="ev_model.models.bricks.TimeserieRecorder.get_column_names" href="#ev_model.models.bricks.TimeserieRecorder.get_column_names">get_column_names</a></code></td>
+            <td>
+              <div class="doc-md-description">
+                <p>Returns the column names.</p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><code><a class="autorefs autorefs-internal" title="ev_model.models.bricks.TimeserieRecorder.get_index_name" href="#ev_model.models.bricks.TimeserieRecorder.get_index_name">get_index_name</a></code></td>
+            <td>
+              <div class="doc-md-description">
+                <p>Returns the index name.</p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><code><a class="autorefs autorefs-internal" title="ev_model.models.bricks.TimeserieRecorder.record_single_data" href="#ev_model.models.bricks.TimeserieRecorder.record_single_data">record_single_data</a></code></td>
+            <td>
+              <div class="doc-md-description">
+                <p>Records a single data point.</p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><code><a class="autorefs autorefs-internal" title="ev_model.models.bricks.TimeserieRecorder.record_batch_data" href="#ev_model.models.bricks.TimeserieRecorder.record_batch_data">record_batch_data</a></code></td>
+            <td>
+              <div class="doc-md-description">
+                <p>Records a batch of data.</p>
+              </div>
+            </td>
+          </tr>
+    </tbody>
+  </table>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="ev_model.models.bricks.TimeserieRecorder.get_column_names" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">get_column_names</span><span class="p">()</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Returns the column names.</p>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>list[str]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>A list with the column names.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="ev_model.models.bricks.TimeserieRecorder.get_index_name" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">get_index_name</span><span class="p">()</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Returns the index name.</p>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The index name.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="ev_model.models.bricks.TimeserieRecorder.record_batch_data" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">record_batch_data</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">col_name</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Records a batch of data.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>index</code></td>
+          <td>
+                <code><span title="numpy.NDArray">NDArray</span>[<span title="numpy.datetime64">datetime64</span>]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>A numpy array with the datetime index.  </p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>values</code></td>
+          <td>
+                <code><span title="numpy.NDArray">NDArray</span>[<span title="numpy.float64">float64</span>]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>A numpy array with the values to be recorded.  </p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>col_name</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The name of the column to be recorded.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="ev_model.models.bricks.TimeserieRecorder.record_single_data" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">record_single_data</span><span class="p">(</span><span class="n">new_index</span><span class="p">,</span> <span class="n">new_data</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>append new data</p>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+    
+  </body>
+</html>

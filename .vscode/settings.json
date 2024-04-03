@@ -1,0 +1,23 @@
+{
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+  "editor.formatOnSaveMode": "file",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "eeyore.yapf",
+  "yapf.args": [
+    "--style",
+    "{based_on_style: pep8, indent_width: 2}"
+  ],
+  "python.analysis.typeCheckingMode": "strict",
+  "python.analysis.extraPaths": [
+    "${workspaceFolder}/src/"
+  ],
+  "python.analysis.autoImportCompletions": false,
+  "[python]": {
+    "editor.defaultFormatter": "eeyore.yapf"
+  }
+}

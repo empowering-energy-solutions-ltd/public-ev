@@ -1,0 +1,6 @@
+/* Example custom styles for mermaid diagrams */
+.mermaid {
+  max-width: 100%;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}

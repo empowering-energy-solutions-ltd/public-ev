@@ -1,0 +1,2993 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../charger/">
+      
+      
+        <link rel="next" href="../ev_system/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.14">
+    
+    
+      
+        <title>Controller - EV</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.10ba22f1.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../../styles.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cy" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ev_model.models.controller" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="EV" class="md-header__button md-logo" aria-label="EV" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            EV
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Controller
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="EV" class="md-nav__button md-logo" aria-label="EV" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    EV
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Code Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Code Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Processing
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Data Processing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/data_processing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data processing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/example_data_import/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Example data import
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Models
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Models
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bricks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bricks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../charger/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Charger
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Controller
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Controller
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      controller
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.controller.Optimized_Sites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimized_Sites
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Optimized_Sites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.controller.Optimized_Sites.calculate_totals" class="md-nav__link">
+    <span class="md-ellipsis">
+      calculate_totals
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.controller.Optimized_Sites.generate_controlled_site" class="md-nav__link">
+    <span class="md-ellipsis">
+      generate_controlled_site
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.controller.Optimized_Sites.run_all_control_methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      run_all_control_methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.controller.Optimized_Sites.run_control_method" class="md-nav__link">
+    <span class="md-ellipsis">
+      run_control_method
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.controller.Optimized_Sites.run_controller_optimizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      run_controller_optimizer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.controller.Optimized_Sites.site_charging_profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      site_charging_profiles
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.controller.Optimized_Sites.site_dataf_creator" class="md-nav__link">
+    <span class="md-ellipsis">
+      site_dataf_creator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.controller.apply_new_charging_profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      apply_new_charging_profile
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.controller.calculate_optimized_charging_profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      calculate_optimized_charging_profile
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.controller.charger_load_availability_profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      charger_load_availability_profile
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.controller.combine_load_profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      combine_load_profile
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.controller.cumsum_energy_consumed" class="md-nav__link">
+    <span class="md-ellipsis">
+      cumsum_energy_consumed
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.controller.find_last_index" class="md-nav__link">
+    <span class="md-ellipsis">
+      find_last_index
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.controller.generate_filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      generate_filter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.controller.get_charging_profile_for_single_day" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_charging_profile_for_single_day
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.controller.get_charging_profile_for_year" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_charging_profile_for_year
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.controller.get_single_day_data" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_single_day_data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.controller.optimizer_selector" class="md-nav__link">
+    <span class="md-ellipsis">
+      optimizer_selector
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.controller.run_optimizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      run_optimizer
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ev_system/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ev system
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sim_functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sim functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vehicles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vehicles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      controller
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.controller.Optimized_Sites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimized_Sites
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Optimized_Sites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.controller.Optimized_Sites.calculate_totals" class="md-nav__link">
+    <span class="md-ellipsis">
+      calculate_totals
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.controller.Optimized_Sites.generate_controlled_site" class="md-nav__link">
+    <span class="md-ellipsis">
+      generate_controlled_site
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.controller.Optimized_Sites.run_all_control_methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      run_all_control_methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.controller.Optimized_Sites.run_control_method" class="md-nav__link">
+    <span class="md-ellipsis">
+      run_control_method
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.controller.Optimized_Sites.run_controller_optimizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      run_controller_optimizer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.controller.Optimized_Sites.site_charging_profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      site_charging_profiles
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ev_model.models.controller.Optimized_Sites.site_dataf_creator" class="md-nav__link">
+    <span class="md-ellipsis">
+      site_dataf_creator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.controller.apply_new_charging_profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      apply_new_charging_profile
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.controller.calculate_optimized_charging_profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      calculate_optimized_charging_profile
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.controller.charger_load_availability_profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      charger_load_availability_profile
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.controller.combine_load_profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      combine_load_profile
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.controller.cumsum_energy_consumed" class="md-nav__link">
+    <span class="md-ellipsis">
+      cumsum_energy_consumed
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.controller.find_last_index" class="md-nav__link">
+    <span class="md-ellipsis">
+      find_last_index
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.controller.generate_filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      generate_filter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.controller.get_charging_profile_for_single_day" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_charging_profile_for_single_day
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.controller.get_charging_profile_for_year" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_charging_profile_for_year
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.controller.get_single_day_data" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_single_day_data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.controller.optimizer_selector" class="md-nav__link">
+    <span class="md-ellipsis">
+      optimizer_selector
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ev_model.models.controller.run_optimizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      run_optimizer
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Controller</h1>
+
+<div class="doc doc-object doc-module">
+
+
+
+<a id="ev_model.models.controller"></a>
+  <div class="doc doc-contents first">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="ev_model.models.controller.Optimized_Sites" class="doc doc-heading">
+          <code>Optimized_Sites</code>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+  </span>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>Class to run the optimizer for each control method.</p>
+
+
+
+  <p><strong>Attributes:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code><span title="ev_model.models.controller.Optimized_Sites.timesteps">timesteps</span></code></td>
+          <td>
+                <code><span title="numpy.NDArray">NDArray</span>[<span title="numpy.datetime64">datetime64</span>]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The timesteps.</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><code><span title="ev_model.models.controller.Optimized_Sites.site_electricity_demand">site_electricity_demand</span></code></td>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The site electricity demand.</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><code><span title="ev_model.models.controller.Optimized_Sites.dict_of_chargers">dict_of_chargers</span></code></td>
+          <td>
+                <code>dict[str, <a class="autorefs autorefs-internal" title="ev_model.models.charger.Charger" href="../charger/#ev_model.models.charger.Charger">Charger</a>]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The dictionary of chargers.</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><code><span title="ev_model.models.controller.Optimized_Sites.site_data_recorder">site_data_recorder</span></code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="ev_model.models.bricks.TimeserieRecorder" href="../bricks/#ev_model.models.bricks.TimeserieRecorder">TimeserieRecorder</a></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The site data recorder.</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><code><span title="ev_model.models.controller.Optimized_Sites.max_import_demand">max_import_demand</span></code></td>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The maximum import demand.</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><code><span title="ev_model.models.controller.Optimized_Sites.carbon_dataf">carbon_dataf</span></code></td>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span> | None</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The carbon data frame.</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><code><span title="ev_model.models.controller.Optimized_Sites.price_dataf">price_dataf</span></code></td>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span> | None</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The price data frame.</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><code><span title="ev_model.models.controller.Optimized_Sites.pv_dataf">pv_dataf</span></code></td>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span> | None</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The PV data frame.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Methods:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+          <tr>
+            <td><code><a class="autorefs autorefs-internal" title="ev_model.models.controller.Optimized_Sites.site_dataf_creator" href="#ev_model.models.controller.Optimized_Sites.site_dataf_creator">site_dataf_creator</a></code></td>
+            <td>
+              <div class="doc-md-description">
+                <p>Creates the site data frame.</p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><code><a class="autorefs autorefs-internal" title="ev_model.models.controller.Optimized_Sites.run_controller_optimizer" href="#ev_model.models.controller.Optimized_Sites.run_controller_optimizer">run_controller_optimizer</a></code></td>
+            <td>
+              <div class="doc-md-description">
+                <p>Runs the optimizer.</p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><code><a class="autorefs autorefs-internal" title="ev_model.models.controller.Optimized_Sites.calculate_totals" href="#ev_model.models.controller.Optimized_Sites.calculate_totals">calculate_totals</a></code></td>
+            <td>
+              <div class="doc-md-description">
+                <p>Calculates the totals.</p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><code><a class="autorefs autorefs-internal" title="ev_model.models.controller.Optimized_Sites.generate_controlled_site" href="#ev_model.models.controller.Optimized_Sites.generate_controlled_site">generate_controlled_site</a></code></td>
+            <td>
+              <div class="doc-md-description">
+                <p>Generates the controlled site.</p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><code><a class="autorefs autorefs-internal" title="ev_model.models.controller.Optimized_Sites.site_charging_profiles" href="#ev_model.models.controller.Optimized_Sites.site_charging_profiles">site_charging_profiles</a></code></td>
+            <td>
+              <div class="doc-md-description">
+                <p>Generates the site charging profiles.</p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><code><a class="autorefs autorefs-internal" title="ev_model.models.controller.Optimized_Sites.run_control_method" href="#ev_model.models.controller.Optimized_Sites.run_control_method">run_control_method</a></code></td>
+            <td>
+              <div class="doc-md-description">
+                <p>Runs the control method.</p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><code><a class="autorefs autorefs-internal" title="ev_model.models.controller.Optimized_Sites.run_all_control_methods" href="#ev_model.models.controller.Optimized_Sites.run_all_control_methods">run_all_control_methods</a></code></td>
+            <td>
+              <div class="doc-md-description">
+                <p>Runs all control methods.</p>
+              </div>
+            </td>
+          </tr>
+    </tbody>
+  </table>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="ev_model.models.controller.Optimized_Sites.calculate_totals" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">calculate_totals</span><span class="p">(</span><span class="n">site_dataf</span><span class="p">,</span> <span class="n">chargers_dict</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Calculates the totals.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>site_dataf</code></td>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The site data frame.  </p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>chargers_dict</code></td>
+          <td>
+                <code>dict[str, <a class="autorefs autorefs-internal" title="ev_model.models.charger.Charger" href="../charger/#ev_model.models.charger.Charger">Charger</a>]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The dictionary of chargers.  </p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="numpy.NDArray">NDArray</span>[<span title="numpy.float64">float64</span>]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The totals.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="ev_model.models.controller.Optimized_Sites.generate_controlled_site" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">generate_controlled_site</span><span class="p">(</span><span class="n">chargers</span><span class="p">,</span> <span class="n">site_dataf</span><span class="p">,</span> <span class="n">control_type</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Generates the controlled site.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>chargers</code></td>
+          <td>
+                <code>dict[str, <a class="autorefs autorefs-internal" title="ev_model.models.charger.Charger" href="../charger/#ev_model.models.charger.Charger">Charger</a>]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The dictionary of chargers.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>site_dataf</code></td>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The site data frame.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>control_type</code></td>
+          <td>
+                <code><span title="ev_model.data.enums.SiteScheduleOptimzer">SiteScheduleOptimzer</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The control type.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="ev_model.models.ev_system.Ev_System" href="../ev_system/#ev_model.models.ev_system.Ev_System">Ev_System</a></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The controlled site.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="ev_model.models.controller.Optimized_Sites.run_all_control_methods" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">run_all_control_methods</span><span class="p">()</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Runs all control methods.</p>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>dict[str, <a class="autorefs autorefs-internal" title="ev_model.models.ev_system.Ev_System" href="../ev_system/#ev_model.models.ev_system.Ev_System">Ev_System</a>]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>A dictionary with the controlled sites.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="ev_model.models.controller.Optimized_Sites.run_control_method" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">run_control_method</span><span class="p">(</span><span class="n">control_type</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Runs the control method.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>control_type</code></td>
+          <td>
+                <code><span title="ev_model.data.enums.SiteScheduleOptimzer">SiteScheduleOptimzer</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The control type.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="ev_model.models.ev_system.Ev_System" href="../ev_system/#ev_model.models.ev_system.Ev_System">Ev_System</a> | None</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The controlled site or None.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="ev_model.models.controller.Optimized_Sites.run_controller_optimizer" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">run_controller_optimizer</span><span class="p">(</span><span class="n">site_dataf</span><span class="p">,</span> <span class="n">chargers</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Runs the optimizer.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>site_dataf</code></td>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The site dataframe based on the control type.  </p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>chargers</code></td>
+          <td>
+                <code>dict[str, <a class="autorefs autorefs-internal" title="ev_model.models.charger.Charger" href="../charger/#ev_model.models.charger.Charger">Charger</a>]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The dictionary of chargers.  </p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The results dataframe.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="ev_model.models.controller.Optimized_Sites.site_charging_profiles" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">site_charging_profiles</span><span class="p">(</span><span class="n">controlled_site</span><span class="p">,</span> <span class="n">site_dataf</span><span class="p">,</span> <span class="n">chargers</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Generates the site charging profiles.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>controlled_site</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="ev_model.models.ev_system.Ev_System" href="../ev_system/#ev_model.models.ev_system.Ev_System">Ev_System</a></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The controlled site.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>site_dataf</code></td>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The site data frame.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>chargers</code></td>
+          <td>
+                <code>dict[str, <a class="autorefs autorefs-internal" title="ev_model.models.charger.Charger" href="../charger/#ev_model.models.charger.Charger">Charger</a>]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The dictionary of chargers.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="ev_model.models.controller.Optimized_Sites.site_dataf_creator" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">site_dataf_creator</span><span class="p">(</span><span class="n">control_type</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Creates the site data frame.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>control_type</code></td>
+          <td>
+                <code><span title="ev_model.data.enums.SiteScheduleOptimzer">SiteScheduleOptimzer</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The control type.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The site data frame.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+
+</div>
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="ev_model.models.controller.apply_new_charging_profile" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">apply_new_charging_profile</span><span class="p">(</span><span class="n">dataf</span><span class="p">,</span> <span class="n">energy_required</span><span class="p">)</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Applies the new charger load profile to the dataframe removing the additional 
+  cumulative values and sorts back to chronological order.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>dataf</code></td>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The dataframe.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>energy_required</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The energy required.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The updated dataframe.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="ev_model.models.controller.calculate_optimized_charging_profile" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">calculate_optimized_charging_profile</span><span class="p">(</span><span class="n">dataf</span><span class="p">,</span> <span class="n">energy_required</span><span class="p">)</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Calculates the updated optimized charging profile and returns it.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>dataf</code></td>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The dataframe.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>energy_required</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The energy required.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="numpy.NDArray">NDArray</span>[<span title="numpy.float64">float64</span>]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The updated charging profile.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="ev_model.models.controller.charger_load_availability_profile" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">charger_load_availability_profile</span><span class="p">(</span><span class="n">site_load_demand_profile</span><span class="p">,</span> <span class="n">max_import_demand</span><span class="p">,</span> <span class="n">max_charger_output</span><span class="p">,</span> <span class="n">existing_load_demand</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Calculate the load availability profile from a charger based on the max import demand constraint.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>site_load_demand_profile</code></td>
+          <td>
+                <code><span title="numpy.NDArray">NDArray</span>[<span title="numpy.float64">float64</span>]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The site load demand profile.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>max_import_demand</code></td>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The maximum import demand for each timestep.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>max_charger_output</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The maximum charger output.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>existing_load_demand</code></td>
+          <td>
+                <code><span title="numpy.NDArray">NDArray</span>[<span title="numpy.float64">float64</span>] | None</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The existing load demand.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="numpy.NDArray">NDArray</span>[<span title="numpy.float64">float64</span>]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The charger load availability profile.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="ev_model.models.controller.combine_load_profile" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">combine_load_profile</span><span class="p">(</span><span class="n">site_dataf</span><span class="p">,</span> <span class="n">new_ev</span><span class="p">,</span> <span class="n">max_import_demand</span><span class="p">,</span> <span class="n">max_charger_output</span><span class="p">)</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Combines the basic charger availability load profile with EV availability and 
+ensures it won't exceed the demand limit.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>site_dataf</code></td>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The site data frame.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>new_ev</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="ev_model.models.vehicles.EV" href="../vehicles/#ev_model.models.vehicles.EV">EV</a></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The new EV.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>max_import_demand</code></td>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The maximum import demand.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>max_charger_output</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The maximum charger output.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The combined load profile.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="ev_model.models.controller.cumsum_energy_consumed" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">cumsum_energy_consumed</span><span class="p">(</span><span class="n">site_dataf</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Creates a cumulated energy column to identify when required charge is reached. </p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>site_dataf</code></td>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The site dataframe.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>ascending</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The ascending order.</p>
+            </div>
+          </td>
+          <td>
+                <code>True</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The data frame with the cumulative energy consumed.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="ev_model.models.controller.find_last_index" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">find_last_index</span><span class="p">(</span><span class="n">dataf</span><span class="p">,</span> <span class="n">energy_required</span><span class="p">)</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Finds the index where target charge is achieved.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>dataf</code></td>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The dataframe.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>energy_required</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The energy required to reach full charge.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>int</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The last index.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="ev_model.models.controller.generate_filter" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">generate_filter</span><span class="p">(</span><span class="n">dataf</span><span class="p">,</span> <span class="n">energy_required</span><span class="p">)</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Generates a filter to identify and extract the data for when the target charge is achieved.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>dataf</code></td>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The dataframe.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>energy_required</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The energy required.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="numpy.NDArray">NDArray</span>[<span title="numpy.bool_">bool_</span>]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The filter.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="ev_model.models.controller.get_charging_profile_for_single_day" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">get_charging_profile_for_single_day</span><span class="p">(</span><span class="n">day_dataf</span><span class="p">,</span> <span class="n">ev</span><span class="p">,</span> <span class="n">max_import_demand</span><span class="p">,</span> <span class="n">max_charger_load</span><span class="p">)</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Applies the charging profile to a single day of data.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>day_dataf</code></td>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The day data frame.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>ev</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="ev_model.models.vehicles.EV" href="../vehicles/#ev_model.models.vehicles.EV">EV</a></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The EV.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>max_import_demand</code></td>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The maximum import demand.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>max_charger_load</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The maximum charger load.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The updated dataframe.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="ev_model.models.controller.get_charging_profile_for_year" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">get_charging_profile_for_year</span><span class="p">(</span><span class="n">site_data</span><span class="p">,</span> <span class="n">temp_ev</span><span class="p">,</span> <span class="n">max_charger_output</span><span class="p">,</span> <span class="n">max_import_demand</span><span class="p">)</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Applies controls to a charger and its EVs to each day of the year. </p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>site_data</code></td>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The site data frame.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>temp_ev</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="ev_model.models.vehicles.EV" href="../vehicles/#ev_model.models.vehicles.EV">EV</a></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The EV.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>max_charger_output</code></td>
+          <td>
+                <code>float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The maximum charger output.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>max_import_demand</code></td>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The maximum import demand.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>None</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The charging profile for the year.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="ev_model.models.controller.get_single_day_data" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">get_single_day_data</span><span class="p">(</span><span class="n">temp_date</span><span class="p">,</span> <span class="n">site_data</span><span class="p">)</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Extracts the data for a single day.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>temp_date</code></td>
+          <td>
+                <code><span title="datetime.datetime.date">date</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The date.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>site_data</code></td>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The site data frame.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The data frame for the single day.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="ev_model.models.controller.optimizer_selector" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">optimizer_selector</span><span class="p">(</span><span class="n">electricity_demand</span><span class="p">,</span> <span class="n">target_dataf</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Choose between basic, emissions or price controls to optimize charging.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>electricity_demand</code></td>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The electricity demand.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>target_dataf</code></td>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The target dataframe (carbon, price, basic).</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>A dataframe containing site demand and the chosen control method.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="ev_model.models.controller.run_optimizer" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">run_optimizer</span><span class="p">(</span><span class="n">dict_chargers</span><span class="p">,</span> <span class="n">site_df</span><span class="p">,</span> <span class="n">max_import_demand</span><span class="p">)</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Loops through each charger and EV to apply a controlled charging profile to each one.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>dict_chargers</code></td>
+          <td>
+                <code>dict[str, <a class="autorefs autorefs-internal" title="ev_model.models.charger.Charger" href="../charger/#ev_model.models.charger.Charger">Charger</a>]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The dictionary of chargers.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>site_df</code></td>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The site data frame.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>max_import_demand</code></td>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The maximum import demand.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="pandas.DataFrame">DataFrame</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The results dataframe.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "ev"
+version = "0.1.0"
+description = ""
+authors = ["Rhys Jones <rhys.jones@e2s.energy>"]
+readme = "README.md"
+packages = [{include = "ev_model"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+matplotlib = "^3.7.1"
+numpy = "^1.24.2"
+ipykernel = "^6.22.0"
+pandas = "^2.0.1"
+e2slib = {git = "git@github.com:empowering-energy-solutions-ltd/e2slib.git", rev = "main"}
+price-profile = {git = "git@github.com:empowering-energy-solutions-ltd/price-profiles.git", rev = "main"}
+pv-generation = {git = "git@github.com:empowering-energy-solutions-ltd/pv-generation.git", rev = "main"}
+mkdocs-gen-files = "^0.5.0"
+mkdocs = "^1.5.3"
+mkdocstrings = "^0.24.1"
+mkdocs-material = "^9.5.14"
+mkdocs-mermaid2-plugin = "^1.1.1"
+mkdocs-markdownextradata-plugin = "^0.2.5"
+mkdocs-literate-nav = "^0.6.1"
+mkdocs-section-index = "^0.3.8"
+mkdocstrings-python = "^1.9.0"
+
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.22.0"
+yapf = "^0.32.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
